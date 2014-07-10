@@ -15,6 +15,7 @@ const (
 
 var pomodori, shortBreak, largeBreak, pomodoriRun int
 
+// initialize the flags/options for the command line
 func init() {
 	flag.IntVar(&pomodori, "p", 25, "Pomodoros work time (minutes)")
 	flag.IntVar(&shortBreak, "s", 5, "Short break time (minutes)")
@@ -23,11 +24,13 @@ func init() {
 }
 
 func sleepTimer(t int, message string) {
+	// notify is a function that lives in notification.go
 	notify(message)
 	fmt.Println(message)
 	time.Sleep(time.Duration(t) * time.Minute)
 }
 
+// pretty prints the usage of the gomodoro command when a bad flag is used
 func show_usage() {
 	fmt.Fprintf(os.Stderr,
 		"Usage: %s [options]\n\n",

@@ -6,6 +6,8 @@ import (
 	"github.com/deckarep/gosx-notifier"
 )
 
+// this method uses de gosx-notifier api to send a message to the
+// osx notification center
 func notify(message string) {
 	note := gosxnotifier.NewNotification(message)
 	note.Title = "Gomodoro"
