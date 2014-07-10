@@ -25,7 +25,7 @@ func init() {
 func sleepTimer(t int, message string) {
 	notify(message)
 	fmt.Println(message)
-	time.Sleep(time.Duration(t) * time.Second)
+	time.Sleep(time.Duration(t) * time.Minute)
 }
 
 func show_usage() {
