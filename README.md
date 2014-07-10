@@ -24,3 +24,7 @@ $ gomodoro -p 30 -s 10 -l 25
 ```
 
 It's pretty simple.
+
+## License
+
+[MIT](https://github.com/albertogg/gomodoro/blob/master/LICENSE) License
