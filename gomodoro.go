@@ -45,7 +45,7 @@ func main() {
 		fmt.Println("Pomodoro run #", i)
 		sleepTimer(pomodori, PomodoriMessage)
 
-		if i == (pomodoriRun) {
+		if i%4 == 0 || i == (pomodoriRun) {
 			fmt.Print("Large break: ")
 			sleepTimer(largeBreak, LargeMessage)
 		} else {
