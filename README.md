@@ -18,10 +18,10 @@ To view this options just: `gomodoro --help`
 
 Each option flag has a default value:
 
-- Pomodoro work interval is set to 25 minutes.
-- Short break interval is set to 5 minutes.
-- Large break interval is set to 30 minutes.
-- Pomodoro runs interval is set to 4 runs.
+- `-p` Pomodoro work interval is set to 25 minutes.
+- `-s` Short break interval is set to 5 minutes.
+- `-l` Large break interval is set to 30 minutes.
+- `-r` Pomodoro runs interval is set to 4 runs.
 
 To modify every default value:
 
