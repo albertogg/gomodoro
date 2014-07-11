@@ -2,6 +2,12 @@
 
 A Pomodoro timer done in Golang that uses OS X Notification Center to alert the user.
 
+## Installation
+
+```bash
+$ go get -u github.com/albertogg/gomodoro
+```
+
 ## Usage
 
 Gomodoro responds to simple arguments in the command line, such as: pomodoros
