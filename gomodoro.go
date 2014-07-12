@@ -45,14 +45,12 @@ func main() {
 	flag.Parse()
 
 	for i := 1; i <= pomodoriRun; i++ {
-		fmt.Println("Pomodoro run #", i)
+		fmt.Println("Run #", i)
 		sleepTimer(pomodori, PomodoriMessage)
 
 		if i%4 == 0 || i == (pomodoriRun) {
-			fmt.Print("Large break: ")
 			sleepTimer(largeBreak, LargeMessage)
 		} else {
-			fmt.Print("Short break: ")
 			sleepTimer(shortBreak, ShortMessage)
 		}
 	}
