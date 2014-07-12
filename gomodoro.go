@@ -13,7 +13,10 @@ const (
 	LargeMessage    = "Starting Large Break"
 )
 
-var pomodori, shortBreak, largeBreak, pomodoriRun int
+var (
+	pomodori, shortBreak, largeBreak, pomodoriRun int
+	start                                         time.Time = time.Now()
+)
 
 // initialize the flags/options for the command line
 func init() {
@@ -44,7 +47,6 @@ func main() {
 	flag.Usage = showUsage
 	flag.Parse()
 
-	start := time.Now()
 	fmt.Println("Starting time is:", start.Format(time.RFC3339))
 
 	for i := 1; i <= pomodoriRun; i++ {
