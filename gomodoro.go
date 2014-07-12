@@ -31,7 +31,7 @@ func sleepTimer(t int, message string) {
 }
 
 // pretty prints the usage of the gomodoro command when a bad flag is used
-func show_usage() {
+func showUsage() {
 	fmt.Fprintf(os.Stderr,
 		"Usage: %s [options]\n\n",
 		os.Args[0])
@@ -41,7 +41,7 @@ func show_usage() {
 }
 
 func main() {
-	flag.Usage = show_usage
+	flag.Usage = showUsage
 	flag.Parse()
 
 	start := time.Now()
