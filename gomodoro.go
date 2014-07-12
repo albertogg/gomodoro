@@ -6,6 +6,8 @@ import (
 	"os"
 	"os/signal"
 	"time"
+
+	"github.com/mitchellh/colorstring"
 )
 
 const (
@@ -55,7 +57,7 @@ func catchUserInterruption(start time.Time) {
 	signal.Notify(c, os.Interrupt)
 	go func() {
 		for sig := range c {
-			fmt.Println("Awww, your total pomodoro time was:", elapsedTime(start), sig)
+			fmt.Printf(colorstring.Color("Awww, your total pomodoro time was: %v, [red]%v\n"), elapsedTime(start), sig)
 			os.Exit(2)
 		}
 	}()
@@ -67,7 +69,7 @@ func main() {
 
 	catchUserInterruption(start)
 
-	fmt.Println("Start time:", start.Format(time.RFC3339))
+	fmt.Println(colorstring.Color("[green]Start time:"), start.Format(time.RFC3339))
 	for i := 1; i <= pomodoriRun; i++ {
 		fmt.Printf("Run #%v\n", i)
 		sleepTimer(pomodori, PomodoriMessage)
