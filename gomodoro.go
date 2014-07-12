@@ -4,6 +4,7 @@ import (
 	"flag"
 	"fmt"
 	"os"
+	"os/signal"
 	"time"
 )
 
@@ -49,12 +50,24 @@ func elapsedTime(start time.Time) time.Duration {
 	return elapsed
 }
 
+func catchUserInterruption(start time.Time) {
+	c := make(chan os.Signal, 2)
+	signal.Notify(c, os.Interrupt)
+	go func() {
+		for sig := range c {
+			fmt.Println("Awww, your total pomodoro time was:", elapsedTime(start), sig)
+			os.Exit(2)
+		}
+	}()
+}
+
 func main() {
 	flag.Usage = showUsage
 	flag.Parse()
 
-	fmt.Println("Starting time is:", start.Format(time.RFC3339))
+	catchUserInterruption(start)
 
+	fmt.Println("Starting time is:", start.Format(time.RFC3339))
 	for i := 1; i <= pomodoriRun; i++ {
 		fmt.Println("Run #", i)
 		sleepTimer(pomodori, PomodoriMessage)
