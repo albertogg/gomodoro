@@ -43,6 +43,12 @@ func showUsage() {
 	flag.PrintDefaults()
 }
 
+func elapsedTime(start time.Time) time.Duration {
+	elapsed := time.Since(start)
+
+	return elapsed
+}
+
 func main() {
 	flag.Usage = showUsage
 	flag.Parse()
@@ -60,6 +66,5 @@ func main() {
 		}
 	}
 
-	elapsed := time.Since(start)
-	fmt.Println("Total pomodoro time was:", elapsed)
+	fmt.Println("Well done, your total pomodoro time was:", elapsedTime(start))
 }
