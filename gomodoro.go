@@ -67,7 +67,7 @@ func main() {
 
 	catchUserInterruption(start)
 
-	fmt.Println("Starting time is:", start.Format(time.RFC3339))
+	fmt.Println("Start time:", start.Format(time.RFC3339))
 	for i := 1; i <= pomodoriRun; i++ {
 		fmt.Println("Run #", i)
 		sleepTimer(pomodori, PomodoriMessage)
