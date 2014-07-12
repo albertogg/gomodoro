@@ -69,7 +69,7 @@ func main() {
 
 	fmt.Println("Start time:", start.Format(time.RFC3339))
 	for i := 1; i <= pomodoriRun; i++ {
-		fmt.Println("Run #", i)
+		fmt.Printf("Run #%v\n", i)
 		sleepTimer(pomodori, PomodoriMessage)
 
 		if i%4 == 0 || i == (pomodoriRun) {
