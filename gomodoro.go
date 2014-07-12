@@ -44,6 +44,9 @@ func main() {
 	flag.Usage = show_usage
 	flag.Parse()
 
+	start := time.Now()
+	fmt.Println("Starting time is:", start.Format(time.RFC3339))
+
 	for i := 1; i <= pomodoriRun; i++ {
 		fmt.Println("Run #", i)
 		sleepTimer(pomodori, PomodoriMessage)
@@ -55,4 +58,6 @@ func main() {
 		}
 	}
 
+	elapsed := time.Since(start)
+	fmt.Println("Total pomodoro time was:", elapsed)
 }
